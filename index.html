@@ -8,48 +8,48 @@
 <style>
 :root{--bg:#f4f5f7;--fg:#1d2330;--card:#fff;--bd:#c9cfdb;--ac:#1f5fd0;--sub:#525d73;--tint:#eef3fc;--code:#f1f3f8;--ff:'Futura','Century Gothic','Jost',sans-serif}
 @media(prefers-color-scheme:dark){:root{--bg:#14171d;--fg:#e8ebf2;--card:#1d222b;--bd:#39404d;--ac:#6ea0ff;--sub:#9aa5ba;--tint:#242d3d;--code:#262c38}}
-*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;font:14px/1.45 var(--ff);background:var(--bg);color:var(--fg)}
-nav{display:flex;position:sticky;top:0;background:var(--card);border-bottom:1px solid var(--bd);z-index:5}
-nav button{flex:1;padding:12px 8px;border:0;border-radius:0;background:none;color:var(--fg);font-weight:600;border-bottom:3px solid transparent;transition:color .15s,border-color .15s}
+*{box-sizing:border-box}[hidden]{display:none!important}html,body{margin:0;min-height:100vh;font:14px/1.45 var(--ff);background:var(--bg);color:var(--fg)}
+nav{display:flex;flex-wrap:wrap;position:sticky;top:0;background:var(--card);border-bottom:1px solid var(--bd);z-index:5}
+nav button{flex:1;padding:11px 8px;border:0;border-radius:0;background:none;color:var(--fg);font-weight:600;border-bottom:3px solid transparent;transition:color .15s,border-color .15s}
 nav button.on{border-color:var(--ac);color:var(--ac)}
 section{max-width:1220px;margin:auto;padding:12px;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
-#o{grid-template-columns:minmax(330px,390px) 1fr;align-items:start}
+#o{grid-template-columns:minmax(310px,360px) 1fr;align-items:start}
 @media(max-width:860px){#o{grid-template-columns:1fr}}
 .meters-pane{position:sticky;top:52px}
-@media(max-width:860px){.meters-pane{position:static;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}}
-.sub-nav{display:flex;gap:6px;background:var(--tint);padding:5px;border-radius:9px;border:1px solid var(--bd);margin-bottom:10px}
-.sub-nav button{flex:1;padding:8px 10px;border:1px solid transparent;border-radius:7px;background:transparent;color:var(--sub);font-weight:700;font-size:13px;transition:all .15s}
+@media(max-width:860px){.meters-pane{position:static;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}}
+.sub-nav{display:flex;gap:6px;background:var(--tint);padding:5px;border-radius:9px;border:1px solid var(--bd);margin-bottom:8px}
+.sub-nav button{flex:1;padding:7px 10px;border:1px solid transparent;border-radius:7px;background:transparent;color:var(--sub);font-weight:700;font-size:13px;transition:all .15s}
 .sub-nav button.on{background:var(--card);color:var(--ac);border-color:var(--bd);box-shadow:0 1px 3px rgba(0,0,0,.08)}
 .rh-panel{background:var(--tint);border:1px solid var(--bd);border-radius:9px;padding:12px;margin:8px 0}
 .obs-panel{background:var(--card);border:1px solid var(--bd);border-radius:9px;padding:12px;margin-top:10px}
-.c{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px}
-.c h3{margin:0 0 8px;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:6px}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:11px}
+.c h3{margin:0 0 6px;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:6px}
 .c h4{margin:10px 0 4px;font-size:13px;color:var(--ac)}
 canvas{width:100%;display:block;border-radius:6px}
 button,select,input{font:inherit;padding:7px 9px;border-radius:7px;border:1px solid var(--bd);background:var(--card);color:var(--fg)}
 button{cursor:pointer;font-weight:600}button:active{transform:translateY(1px)}
 button:disabled{opacity:.5;cursor:not-allowed}
 input[type=range]{width:100%;padding:0}input[type=text]{width:90px}
-.r{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin:5px 0}.fb{min-height:36px;margin:4px 0}
+.r{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin:5px 0}.fb{min-height:34px;margin:4px 0}
 table{width:100%;border-collapse:collapse;text-align:center}td,th{border-bottom:1px solid var(--bd);padding:4px}
 #ov{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:8px}
 #ov[hidden]{display:none}#zc{max-height:72vh;width:auto;max-width:100%;background:#fff}.ok{color:#0a7a2f}.bad{color:#c22}.w{color:#b86a00}
 @media(prefers-color-scheme:dark){.ok{color:#4cd97b}.bad{color:#ff6b6b}.w{color:#ffb74d}}
 
-/* Interactive Wiring Procedure Box */
-.wire-box{background:var(--tint);border:1px solid var(--bd);border-radius:8px;padding:9px;margin-bottom:8px}
-.wire-hdr{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:6px;font-weight:700;font-size:13px;flex-wrap:wrap}
-.wire-chips{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
-.w-chip{font-size:11.5px;padding:3px 7px;border-radius:6px;border:1px solid var(--bd);background:var(--card);color:var(--sub);font-weight:600}
+/* Interactive Wiring Procedure Box & Compact Diagram */
+.wire-box{background:var(--tint);border:1px solid var(--bd);border-radius:8px;padding:7px 9px;margin-bottom:7px}
+.wire-hdr{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:5px;font-weight:700;font-size:12.5px;flex-wrap:wrap}
+.wire-chips{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:5px}
+.w-chip{font-size:11px;padding:2px 6px;border-radius:5px;border:1px solid var(--bd);background:var(--card);color:var(--sub);font-weight:600}
 .w-chip.done{border-color:#0a7a2f;background:rgba(10,122,47,.12);color:#0a7a2f}
 @media(prefers-color-scheme:dark){.w-chip.done{color:#4cd97b}}
 .w-badge{font-size:11px;font-weight:700;padding:2px 7px;border-radius:99px;background:var(--code);color:var(--sub)}
 .w-badge.ready{background:#0a7a2f;color:#fff}
 .w-badge.err{background:#c22;color:#fff}
-.wire-fb{font-size:12.5px;padding:6px 8px;border-radius:6px;background:var(--card);border:1px solid var(--bd);min-height:34px;line-height:1.35}
+.wire-fb{font-size:12px;padding:5px 8px;border-radius:6px;background:var(--card);border:1px solid var(--bd);min-height:30px;line-height:1.3}
 .wire-fb.bad{border-color:#c22;background:rgba(204,34,34,.08)}
 .wire-fb.ok{border-color:#0a7a2f;background:rgba(10,122,47,.08)}
-#cc{touch-action:none;cursor:crosshair;user-select:none}
+#cc{touch-action:none;cursor:crosshair;user-select:none;max-width:540px;max-height:330px;margin:0 auto}
 
 /* Help & Quick-Help UI */
 .hb{width:24px;height:24px;padding:0;border-radius:50%;font-size:12px;font-weight:700;line-height:1;background:var(--tint);color:var(--ac);border:1px solid var(--ac);flex-shrink:0;display:inline-flex;align-items:center;justify-content:center}
@@ -72,7 +72,7 @@ details p{margin:6px 0 0;color:var(--sub)}
 .flash{animation:flashCard 1.6s ease-out}
 
 /* Blueprint Start Menu & Boot Overlay */
-#ld{position:fixed;inset:0;z-index:99;background:radial-gradient(circle at 20% 20%,#1b54c4 0%,#0d275c 55%,#071636 100%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;overflow-y:auto;transition:opacity .45s ease,transform .45s ease}
+#ld{position:fixed;inset:0;z-index:99;background:radial-gradient(circle at 20% 20%,#1b54c4 0%,#0d275c 55%,#071636 100%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;overflow-y:auto;transition:opacity .4s ease,transform .4s ease}
 #ld.out{opacity:0;transform:scale(1.02);pointer-events:none}
 .bp-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.42}
 .bp-pulse{stroke-dasharray:10 180;animation:pulseFlow 5s linear infinite}
@@ -80,26 +80,20 @@ details p{margin:6px 0 0;color:var(--sub)}
 .bp-float{animation:floatSlow 6s ease-in-out infinite}
 @keyframes floatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .ld-inner{position:relative;z-index:2;max-width:860px;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
-.ld-boot{display:flex;flex-direction:column;align-items:center;gap:12px;transition:opacity .25s ease}
-.sp{width:64px;height:64px;border-radius:50%;border:4px solid rgba(255,255,255,.22);border-top-color:#7ce0ff;animation:rot .85s linear infinite;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;box-shadow:0 0 24px rgba(124,224,255,.35)}
-.sp b{animation:rot .85s linear infinite reverse}
-.bar{width:220px;height:7px;border-radius:5px;background:rgba(255,255,255,.2);overflow:hidden}
-.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#7ce0ff,#fff);animation:fill .55s cubic-bezier(.22,1,.36,1) forwards}
-.menu-wrap{width:100%;display:flex;flex-direction:column;align-items:center;gap:16px;animation:menuIn .4s cubic-bezier(.16,1,.3,1) forwards}
-@keyframes menuIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.menu-wrap{width:100%;display:flex;flex-direction:column;align-items:center;gap:15px}
 .menu-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:99px;background:rgba(124,224,255,.14);border:1px solid rgba(124,224,255,.38);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#aeeaff}
-.menu-title{margin:0;font-size:clamp(26px,4.5vw,38px);font-weight:700;letter-spacing:-.01em;text-shadow:0 2px 18px rgba(0,0,0,.35)}
-.menu-sub{margin:0;max-width:580px;color:rgba(232,242,255,.86);font-size:14.5px}
-.menu-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;width:100%;margin-top:4px;text-align:left}
-.m-card{background:rgba(255,255,255,.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.26);border-radius:16px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;cursor:pointer;transition:transform .2s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease}
+.menu-title{margin:0;font-size:clamp(25px,4.2vw,36px);font-weight:700;letter-spacing:-.01em;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.menu-sub{margin:0;max-width:580px;color:rgba(232,242,255,.86);font-size:14px}
+.menu-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;width:100%;margin-top:2px;text-align:left}
+.m-card{background:rgba(255,255,255,.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.26);border-radius:16px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;gap:12px;cursor:pointer;transition:transform .2s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease}
 .m-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.16);border-color:#7ce0ff;box-shadow:0 14px 32px rgba(4,14,38,.45)}
 .m-card-top{display:flex;align-items:center;gap:12px}
-.m-ico{width:50px;height:50px;border-radius:12px;background:rgba(124,224,255,.16);border:1px solid rgba(124,224,255,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.m-card h3{margin:0;font-size:18px;color:#fff}
-.m-card p{margin:0;font-size:13.5px;color:rgba(230,240,255,.85);line-height:1.45}
+.m-ico{width:48px;height:48px;border-radius:12px;background:rgba(124,224,255,.16);border:1px solid rgba(124,224,255,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.m-card h3{margin:0;font-size:17.5px;color:#fff}
+.m-card p{margin:0;font-size:13px;color:rgba(230,240,255,.85);line-height:1.45}
 .m-tags{display:flex;flex-wrap:wrap;gap:5px}
 .m-tags span{font-size:11px;padding:3px 8px;border-radius:6px;background:rgba(7,22,54,.45);border:1px solid rgba(124,224,255,.25);color:#bfefff;font-weight:600}
-.m-cta{width:100%;padding:10px 14px;border-radius:10px;border:0;background:#fff;color:#0e2b63;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 14px rgba(0,0,0,.22);transition:background .15s,transform .15s}
+.m-cta{width:100%;padding:10px 14px;border-radius:10px;border:0;background:#fff;color:#0e2b63;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 14px rgba(0,0,0,.22);transition:background .15s}
 .m-card:hover .m-cta{background:#7ce0ff;color:#071636}
 .menu-guide-link{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;padding:8px 16px;border-radius:99px;font-size:13px;font-weight:600;transition:background .15s}
 .menu-guide-link:hover{background:rgba(255,255,255,.22)}
@@ -110,12 +104,11 @@ details p{margin:6px 0 0;color:var(--sub)}
 .audio-btn.primary:hover{background:#aeeaff}
 .audio-track{font-size:12px;color:#bfefff;max-width:190px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
 .nav-audio-grp{display:flex;align-items:center;border-left:1px solid var(--bd);flex:0 0 auto}
-.nav-audio-btn{flex:0 0 auto!important;padding:12px 10px!important;font-size:12.5px}
+.nav-audio-btn{flex:0 0 auto!important;padding:11px 10px!important;font-size:12.5px}
 .author-byline{margin:-6px 0 2px;font-size:15px;font-weight:700;letter-spacing:.04em;color:#7ce0ff;text-shadow:0 2px 10px rgba(0,0,0,.3)}
 .cred-hero{background:linear-gradient(135deg,#1b54c4,#0d275c);color:#fff;border-radius:12px;padding:20px;margin-bottom:10px;border:1px solid rgba(124,224,255,.35)}
 .cred-hero h2{margin:0 0 6px;font-size:22px}
 .cred-hero p{margin:0;color:rgba(232,242,255,.9)}
-@keyframes rot{to{transform:rotate(360deg)}}@keyframes fill{to{width:100%}}
 </style></head><body>
 
 <div id="ld">
@@ -127,7 +120,6 @@ details p{margin:6px 0 0;color:var(--sub)}
    </pattern>
   </defs>
   <rect width="1200" height="720" fill="url(#bpGrid)"/>
-  <!-- Top-left Ohm's Law Circuit Schematic -->
   <g stroke="#8be4ff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
    <path d="M 70 110 H 150 M 182 110 H 275 M 310 110 H 390 V 165 L 402 173 L 378 185 L 402 197 L 378 209 L 390 217 V 270 H 295 L 285 258 L 271 282 L 257 258 L 243 282 L 229 258 L 219 270 H 70 V 210 M 70 174 V 110"/>
    <line x1="150" y1="90" x2="150" y2="130" stroke-width="3"/>
@@ -147,7 +139,6 @@ details p{margin:6px 0 0;color:var(--sub)}
    <text x="412" y="196" font-size="13">Rh</text>
    <text x="282" y="84" font-size="12">(K)</text>
   </g>
-  <!-- Bottom-right Screw Gauge / Micrometer Blueprint -->
   <g transform="translate(760,445)" stroke="#8be4ff" fill="none" stroke-width="2">
    <path d="M 40 35 H 165 V 175 H 40 C 12 175 12 35 40 35 Z"/>
    <rect x="40" y="92" width="32" height="26"/>
@@ -160,7 +151,6 @@ details p{margin:6px 0 0;color:var(--sub)}
    <path d="M 275 75 H 292 M 275 90 H 288 M 275 105 H 295 M 275 120 H 288 M 275 135 H 292"/>
    <circle cx="92" cy="105" r="14" stroke-dasharray="4 3"/>
   </g>
-  <!-- Floating Physics Equations -->
   <g class="bp-float" fill="rgba(190,235,255,0.65)" font-family="Futura, Jost, sans-serif" font-weight="700">
    <text x="840" y="115" font-size="28">V = I &middot; R</text>
    <text x="880" y="155" font-size="19">&rho; = (R &middot; A) / L</text>
@@ -168,7 +158,6 @@ details p{margin:6px 0 0;color:var(--sub)}
    <text x="145" y="582" font-size="18">A = &pi;d&sup2; / 4</text>
    <text x="535" y="88" font-size="16" opacity=".7">R<tspan dy="4" font-size="12">eq</tspan><tspan dy="-4"> = R</tspan><tspan dy="4" font-size="12">1</tspan><tspan dy="-4"> + R</tspan><tspan dy="4" font-size="12">2</tspan></text>
   </g>
-  <!-- Top-right Analog Dial Arc -->
   <g transform="translate(1030,275)" stroke="#8be4ff" fill="none" stroke-width="1.8" opacity=".75">
    <path d="M -75 25 A 85 85 0 0 1 75 25"/>
    <line x1="0" y1="35" x2="36" y2="-38" stroke="#fff" stroke-width="2.2"/>
@@ -177,15 +166,7 @@ details p{margin:6px 0 0;color:var(--sub)}
  </svg>
 
  <div class="ld-inner">
-  <div id="ld-boot" class="ld-boot">
-   <div class="sp"><b>&Omega;</b></div>
-   <h2 style="margin:0;font-size:24px">Ohm's Law &amp; Wire Lab</h2>
-   <div style="font-size:13.5px;font-weight:700;color:#7ce0ff">By Esam Bushair Mohammad</div>
-   <div class="bar"><i></i></div>
-   <p id="lt" style="margin:0;opacity:.85;font-size:13px">Initializing instruments&hellip;</p>
-  </div>
-
-  <div id="ld-menu" class="menu-wrap" hidden>
+  <div id="ld-menu" class="menu-wrap">
    <div class="menu-badge">&#9889; Interactive Physics Laboratory</div>
    <h1 class="menu-title">Ohm's Law &amp; Screw Gauge Lab</h1>
    <div class="author-byline">By Esam Bushair Mohammad</div>
@@ -260,8 +241,9 @@ details p{margin:6px 0 0;color:var(--sub)}
  </div>
 </div>
 <audio id="bgm-audio" loop preload="auto"></audio>
- <nav>
- <button class="menu-nav-btn" onclick="openMenu()" title="Return to Start Menu" style="flex:0 0 auto;padding:12px 14px;border-right:1px solid var(--bd)">&#8962; Menu</button>
+
+<nav>
+ <button class="menu-nav-btn" onclick="openMenu()" title="Return to Start Menu" style="flex:0 0 auto;padding:11px 14px;border-right:1px solid var(--bd)">&#8962; Menu</button>
  <button class="on" data-t="o">Ohm's Law Lab</button>
  <button data-t="p">V&ndash;I Graph &amp; Table <span id="nav-pts" class="w-badge" style="margin-left:4px">0</span></button>
  <button data-t="g">Wire Lab</button>
@@ -281,7 +263,7 @@ details p{margin:6px 0 0;color:var(--sub)}
    <canvas id="cv" onclick="zoom('V')"></canvas>
    <div class="r"><select id="vr" style="width:100%" onchange="S.vr=+this.value;ref()"><option value="0">Range: 0&ndash;3 V (LC 0.05 V)<option value="1">Range: 0&ndash;10 V (LC 0.2 V)<option value="2">Range: 0&ndash;15 V (LC 0.5 V)</select></div>
   </div>
-  <div style="margin-top:10px">
+  <div style="margin-top:8px">
    <h3><span>Ammeter &mdash; tap to zoom</span><button class="hb" title="How to read the Ammeter" onclick="goHelp('h-meters')">?</button></h3>
    <canvas id="ca" onclick="zoom('A')"></canvas>
    <div class="r"><select id="ar" style="width:100%" onchange="S.ar=+this.value;ref()"><option value="0">Range: 0&ndash;100 mA (LC 1 mA)<option value="1">Range: 0&ndash;500 mA (LC 5 mA)<option value="2">Range: 0&ndash;1000 mA (LC 10 mA)</select></div>
@@ -294,7 +276,7 @@ details p{margin:6px 0 0;color:var(--sub)}
    <button id="sub-btn-ctrl" onclick="setOhmView('ctrl')">2. Rheostat &amp; Readings</button>
   </div>
 
-  <!-- Sub-view A: Spacious Interactive Circuit Diagram -->
+  <!-- Sub-view A: Compact Interactive Circuit Diagram -->
   <div id="ohm-view-diag">
    <h3><span>Interactive Circuit Assembly</span><button class="hb" title="Interactive terminal wiring & Connection A vs B" onclick="goHelp('h-circuit')">?</button></h3>
    <div class="wire-box" id="wire-panel">
@@ -742,9 +724,7 @@ function initDefaultMenuMusic(){
  aud.loop=$('bgm-loop')?$('bgm-loop').checked:true;
  bgmCandIdx=0;bgmUsingDefault=true;bgmFileReady=false;bgmEnabled=true;
  syncBgmButtons();
- const unlock=()=>{
-  if(bgmEnabled)tryStartActiveBgm();
- };
+ const unlock=()=>{if(bgmEnabled)tryStartActiveBgm();};
  ['pointerdown','click','touchstart','keydown'].forEach(ev=>document.addEventListener(ev,unlock,true));
  aud.onerror=()=>{
   if(!bgmUsingDefault)return;
@@ -822,20 +802,20 @@ function setupHiDPI(cv,lw,lh){
  return c;
 }
 
-/* ---------- Interactive Terminal Definitions & Wiring Rules ---------- */
+/* ---------- Exact Terminal Coordinates & Wiring Rules ---------- */
 const TERMS={
  'E+':{x:150,y:126,lbl:'E+',pol:'+',hint:'Battery (+)'},
  'E-':{x:210,y:126,lbl:'E−',pol:'-',hint:'Battery (−)'},
- 'A+':{x:56,y:165,lbl:'A+',pol:'+',hint:'Ammeter (+)'},
- 'A-':{x:56,y:215,lbl:'A−',pol:'-',hint:'Ammeter (−)'},
+ 'A+':{x:56,y:172,lbl:'A+',pol:'+',hint:'Ammeter (+)'},
+ 'A-':{x:56,y:208,lbl:'A−',pol:'-',hint:'Ammeter (−)'},
  'R1':{x:185,y:245,lbl:'R1',pol:'0',hint:'Resistor Left'},
  'R2':{x:315,y:245,lbl:'R2',pol:'0',hint:'Resistor Right'},
  'Rh1':{x:428,y:216,lbl:'Rh1',pol:'0',hint:'Rheostat Lower'},
  'Rh2':{x:396,y:152,lbl:'Rh2',pol:'0',hint:'Rheostat Slider'},
- 'K1':{x:352,y:126,lbl:'K1',pol:'0',hint:'Key (K) Right'},
- 'K2':{x:316,y:126,lbl:'K2',pol:'0',hint:'Key (K) Left'},
- 'V+':{x:226,y:296,lbl:'V+',pol:'+',hint:'Voltmeter (+)'},
- 'V-':{x:274,y:296,lbl:'V−',pol:'-',hint:'Voltmeter (−)'}
+ 'K1':{x:355,y:126,lbl:'K1',pol:'0',hint:'Key (K) Right'},
+ 'K2':{x:313,y:126,lbl:'K2',pol:'0',hint:'Key (K) Left'},
+ 'V+':{x:232,y:296,lbl:'V+',pol:'+',hint:'Voltmeter (+)'},
+ 'V-':{x:268,y:296,lbl:'V−',pol:'-',hint:'Voltmeter (−)'}
 };
 const pairKey=(a,b)=>[a,b].sort().join('|');
 function requiredLeads(){
@@ -882,13 +862,14 @@ function attemptConnection(a,b){
  const match=req.find(l=>l.id===pk);
  if(match){
   S.wires.add(pk);S.fault=null;
-  const done=allWired();
+  const activeCount=req.filter(l=>S.wires.has(l.id)).length;
+  const done=activeCount===req.length;
   if(done){
    SFX.circuitReady();
    setWireFb(`&#10003; Connected <b>${match.label}</b>. <b>All 7 leads complete!</b> Plug Key (K) is now unlocked &mdash; close it or proceed to Rheostat &amp; Readings.`,'ok');
   }else{
    SFX.wireOk();
-   setWireFb(`&#10003; Connected <b>${match.label}</b> (${S.wires.size}/7 leads connected).`,'ok');
+   setWireFb(`&#10003; Connected <b>${match.label}</b> (${activeCount}/${req.length} leads connected).`,'ok');
   }
  }else{
   S.mistakes++;
@@ -919,6 +900,7 @@ function changeConn(val){
  renderWireUI();ref();
 }
 function autoWire(){
+ S.wires.clear();
  requiredLeads().forEach(l=>S.wires.add(l.id));
  S.fault=null;
  SFX.circuitReady();
@@ -1046,14 +1028,12 @@ function launchApp(tab='o'){
   tryStartActiveBgm();
  }
  $('ld').classList.add('out');
- setTimeout(()=>{$('ld').hidden=true;},450);
+ setTimeout(()=>{$('ld').hidden=true;},420);
 }
 function openMenu(){
  SFX.click();
  const ld=$('ld');
  ld.hidden=false;
- $('ld-boot').hidden=true;
- $('ld-menu').hidden=false;
  requestAnimationFrame(()=>ld.classList.remove('out'));
 }
 
@@ -1084,19 +1064,15 @@ function dial(cv,k,lw0){
  const c=setupHiDPI(cv,lw0,lw0*0.64);if(!c)return;
  const m=M[k],[fs,mj,lc]=rngOf(k),s=lw0/350,n=Math.round(fs/lc),km=Math.round(mj/lc),sc=k=='A'?1000:1,u=k=='A'?'mA':'V';
  c.scale(s,s);
- // Brushed metallic outer bezel
  const bez=c.createLinearGradient(0,0,350,224);
  bez.addColorStop(0,'#3b4252');bez.addColorStop(0.5,'#232834');bez.addColorStop(1,'#141820');
  c.fillStyle=bez;c.fillRect(0,0,350,224);
- // Inner cream dial face with subtle radial vignette
  const face=c.createRadialGradient(175,180,20,175,140,185);
  face.addColorStop(0,'#fffdf6');face.addColorStop(0.82,'#f6f0dc');face.addColorStop(1,'#e7dec3');
  c.fillStyle=face;c.beginPath();c.roundRect(7,7,336,210,8);c.fill();
  c.strokeStyle='#b8ae92';c.lineWidth=1.2;c.stroke();
- // Anti-parallax mirror arc
  c.strokeStyle='rgba(120,150,185,0.35)';c.lineWidth=4;
  c.beginPath();c.arc(175,194,132,-PI/2-.8727,-PI/2+.8727);c.stroke();
- // Main scale arc & graduations
  c.strokeStyle='#1d222b';c.fillStyle='#111';c.lineWidth=1.3;
  c.beginPath();c.arc(175,194,148,-PI/2-.8727,-PI/2+.8727);c.stroke();
  const P=(a,r)=>[175+r*Math.sin(a),194-r*Math.cos(a)];
@@ -1106,19 +1082,16 @@ function dial(cv,k,lw0){
   c.beginPath();c.moveTo(...P(a,148));c.lineTo(...P(a,148-L));c.stroke();
   if(isMaj){c.font='700 10.5px '+FF;c.textAlign='center';c.textBaseline='middle';c.fillText(+(i*lc*sc).toFixed(4),...P(a,117));}
  }
- // Typography & unit badge
  c.fillStyle='#1d2330';c.font='700 25px '+FF;c.textAlign='center';c.fillText(u,44,186);
  c.font='700 10px '+FF;c.textAlign='left';c.fillStyle='#2a3344';c.fillText(k=='V'?'VOLTMETER':'AMMETER',16,22);
  c.textAlign='right';c.fillStyle='#b91c1c';c.fillText('0\u2013'+(+(fs*sc).toFixed(4))+' '+u,334,22);
  c.fillStyle='#4b5563';c.font='600 9.5px '+FF;c.fillText('LC = '+(+(lc*sc).toFixed(4))+' '+u,334,36);
- // Needle with soft drop shadow
  const a=(-50+100*m.th)*PI/180;
  c.save();
  c.shadowColor='rgba(0,0,0,0.28)';c.shadowBlur=4;c.shadowOffsetX=1.5;c.shadowOffsetY=2;
  c.strokeStyle='#dc1414';c.lineWidth=1.6;
  c.beginPath();c.moveTo(...P(a+PI,22));c.lineTo(...P(a,145));c.stroke();
  c.restore();
- // Metallic center pivot cap
  const cap=c.createRadialGradient(172,191,1,175,194,10);
  cap.addColorStop(0,'#6b7280');cap.addColorStop(1,'#1f2937');
  c.fillStyle=cap;c.beginPath();c.arc(175,194,9.5,0,PI*2);c.fill();
@@ -1130,10 +1103,8 @@ const settled=()=>['V','A'].every(k=>Math.abs(M[k].th-M[k].tg)<.002&&Math.abs(M[
 function drawCircuitDiagram(cv,lw,interactive){
  const c=setupHiDPI(cv,lw,lw*0.68);if(!c)return;
  c.scale(lw/500,lw/500);
- // Outer rounded periwinkle/indigo frame matching reference image
  c.fillStyle='#5856ec';c.fillRect(0,0,500,340);
  c.fillStyle='#ffffff';c.beginPath();c.roundRect(14,14,472,312,34);c.fill();
- // Coral-red header title
  c.fillStyle='#de4b59';c.font='700 22px '+FF;c.textAlign='left';
  c.fillText('Diagram to verify Ohm\u2019s law',42,56);
 
@@ -1175,7 +1146,6 @@ function drawCircuitDiagram(cv,lw,interactive){
   c.lineTo(rx+6*g,rzTop+(rzBot-rzTop)*t);
  }
  c.lineTo(rx,rzBot);c.stroke();
- // Sliding wiper arrow
  const wy=interactive?(rzBot-(rzBot-rzTop)*(S.rh/100)):166;
  L(396,152,396,wy,rx-6,wy);
  arrow(rx-6,wy,'right');
@@ -1219,12 +1189,12 @@ function drawCircuitDiagram(cv,lw,interactive){
  drawLead(has('E+|A+'),[150,top,lx,top,lx,172],[[98,top,'left']]);
  drawLead(has('A-|R1'),[lx,208,lx,bot,185,bot]);
  drawLead(has('R2|Rh1'),[315,bot,rx,bot,rx,rzBot],[[376,bot,'right']]);
- drawLead(has('K1|Rh2'),[352,top,396,top,396,152]);
- drawLead(has('E-|K2'),[316,top,210,top],[[262,top,'left']]);
+ drawLead(has('K1|Rh2'),[355,top,396,top,396,152]);
+ drawLead(has('E-|K2'),[313,top,210,top],[[262,top,'left']]);
  if(S.conn==='A'){
   drawLead(has('R1|V+'),[185,bot,185,296,232,296]);
  }else{
-  drawLead(has('A+|V+'),[lx,155,34,155,34,296,232,296]);
+  drawLead(has('A+|V+'),[lx,172,30,172,30,296,232,296]);
  }
  drawLead(has('R2|V-'),[268,296,315,296,315,bot]);
 
@@ -1251,7 +1221,6 @@ function drawCircuitDiagram(cv,lw,interactive){
    c.fillStyle=isFault?'#dc2626':(isSrc||isHov?'#2563eb':(t.pol==='+'?'#ef4444':(t.pol==='-'?'#1d4ed8':'#f59e0b')));
    c.fill();
    c.lineWidth=1.8;c.strokeStyle='#ffffff';c.stroke();
-   // Small pill label
    const dy=(k==='V+'||k==='V-')?14:(k==='R1'||k==='R2'?-13:(k==='A+'||k==='A-'?0:-13));
    const dx=(k==='A+'||k==='A-')?17:(k==='Rh1'?18:(k==='Rh2'?-18:0));
    c.font='700 9.5px '+FF;c.textAlign='center';c.textBaseline='middle';
@@ -1352,26 +1321,21 @@ function sg(cv,lw0,gz=1){
  L=(a,b,d,e,w2=1,col='#1f2937')=>{c.strokeStyle=col;c.lineWidth=w2;c.beginPath();c.moveTo(a,b);c.lineTo(d,e);c.stroke();},
  T=(t,x,y,sz=8.5,al='center',col='#1f2937')=>{c.fillStyle=col;c.font='700 '+sz+'px '+FF;c.textAlign=al;c.textBaseline='middle';c.fillText(t,x,y);};
 
- // Metallic U-frame gradient
  const frm=c.createLinearGradient(30,50,351,262);
  frm.addColorStop(0,'#64748b');frm.addColorStop(0.5,'#475569');frm.addColorStop(1,'#334155');
  R(30,50,45,212,frm);R(30,50,XB-54,36,frm);R(XB-26,50,26,212,frm);
- // Anvil
  const anv=c.createLinearGradient(75,Y-9,75,Y+9);
  anv.addColorStop(0,'#cbd5e1');anv.addColorStop(0.5,'#94a3b8');anv.addColorStop(1,'#64748b');
  R(75,Y-9,35,18,anv);
- // Shaded copper wire cross-section
  if(G.wire){
   const rd=G.dl*K/2;
   const wg=c.createRadialGradient(XA+rd*0.7,Y-rd*0.3,1,XA+rd,Y,rd);
   wg.addColorStop(0,'#f59e0b');wg.addColorStop(0.7,'#b45309');wg.addColorStop(1,'#78350f');
   c.fillStyle=wg;c.beginPath();c.arc(XA+rd,Y,rd,0,PI*2);c.fill();
  }
- // Spindle
  const spd=c.createLinearGradient(tip,Y-7,tip,Y+7);
  spd.addColorStop(0,'#e2e8f0');spd.addColorStop(0.5,'#cbd5e1');spd.addColorStop(1,'#94a3b8');
  R(tip,Y-7,XB-26-tip,14,spd);
- // Main sleeve barrel
  const slv=c.createLinearGradient(XB-4,Y-36,XB-4,Y+36);
  slv.addColorStop(0,'#e5dec9');slv.addColorStop(0.5,'#faf6ea');slv.addColorStop(1,'#dcd3b8');
  R(XB-4,Y-36,6*K+18,72,slv);
@@ -1382,7 +1346,6 @@ function sg(cv,lw0,gz=1){
  }
  T('SCREW GAUGE   pitch 1 mm \u2022 100 circular divisions (LC = 0.01 mm)',12,18,10.5,'left');
  T('anvil',92,Y+26,8.5);T('sleeve (main scale, mm)',XB+4,Y+50,8.5,'left','#4b5563');
- // Rotating Thimble & Ratchet
  const thm=c.createLinearGradient(xe,Y-60,xe,Y+60);
  thm.addColorStop(0,'#94a3b8');thm.addColorStop(0.45,'#e2e8f0');thm.addColorStop(1,'#64748b');
  R(xe,Y-60,155,120,thm);R(xe,Y-60,24,120,'#f1f5f9');
@@ -1523,7 +1486,7 @@ function loop(){
   m.om+=a*.016;m.th+=m.om*.016;
   if(m.th<-.03){m.th=-.03;m.om*=-.25}if(m.th>1.08){m.th=1.08;m.om*=-.25}
  }
- if(!$('o').hidden){dial($('cv'),'V',360);dial($('ca'),'A',360);}
+ if(!$('o').hidden){dial($('cv'),'V',340);dial($('ca'),'A',340);}
  if(zk=='V'||zk=='A')dial($('zc'),zk,960);
  requestAnimationFrame(loop);
 }
@@ -1535,12 +1498,12 @@ window.onerror=(m,u,l)=>{
  document.body.appendChild(e);
 };
 
-for(const f of[initDefaultMenuMusic,bindInteractiveCircuit,ref,graph,gd,mdraw,drawRefHelp,updHelpSim])try{f()}catch(e){window.onerror(e.message,'',0)}
-loop();
-
-setTimeout(()=>{$('lt').textContent='Ready!';},320);
-setTimeout(()=>{
- $('ld-boot').hidden=true;
- $('ld-menu').hidden=false;
-},600);
+function bootApp(){
+ for(const f of[initDefaultMenuMusic,bindInteractiveCircuit,ref,graph,gd,mdraw,drawRefHelp,updHelpSim]){
+  try{f();}catch(e){window.onerror(e.message,'',0);}
+ }
+ loop();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bootApp);
+else bootApp();
 </script></body></html>
